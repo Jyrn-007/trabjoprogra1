@@ -9,6 +9,8 @@
 #include <stdlib.h> 
 #include <stdio.h> 
 #include <iostream> 
+#define _ACTOR_
+
 using namespace std;
 
 void gotoxy(int x, int y)
@@ -19,20 +21,21 @@ void gotoxy(int x, int y)
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 struct nodo {
+	
 	int Dpi;
-	char a[100];
-  char *nombre=a;;
- char *sexo=a;
- char *dirección=a;
- char *Tipo_alergia=a;
- char *fechanacimiento=a;
-  char *estadocivil=a;
+  string nombre;
+ string sexo;
+  string dirección;
+ string Tipo_alergia;
+ string fechanacimiento;
+ string estadocivil;
  int ttelefonofijo;
  int ttelefonomovil;
- char *correoelectronico = a;
- char *brigrada = a;
- char *fechainiciobrigada = a;
+ string  correoelectronico;
+ string brigrada;
+ string fechainiciobrigada;
  nodo* sgt;
+ 
 
 
 };
@@ -62,21 +65,42 @@ int main()
 }
 
 void agrega(nodo** cab, nodo** no, nodo** sex, nodo** dir, nodo** tipal, nodo** fena, nodo** esciv, nodo** telf, nodo** telmov, nodo** cor, nodo** brig, nodo** fechinbri, nodo** fin) {
+	int Dp,telefonofijo, telefonomovil;
+	string nom,sexoo,domicilio, tipoalergia,fechnacimineto, eestadocivil, correo, brigadaper, fechainbrigada;
 
-	char a[100];
-	int Dp; cout << "ingrese su numero de DPI" << endl;  cin >> Dp;
-	char *nom=a; cout << "ingrese su nombre completo" << endl;  cin >> nom;
-     char *sexoo=a; cout << "ingrese su sexo" << endl; cin >> sexoo;
+	cout << "ingrese su numero de DPI: ", cin >> Dp;
+	cout << "ingrese su nombre completo: ", getline(cin, nom);
+	cin.get();
 
-	char *domicilio=a; cout << "4.DirecciOn de domicilio" << endl; cin >> domicilio;
-	char* tipoalergia = a; cout << "Tipo de alergias" << endl; cin >> tipoalergia;
-	 char* fechnacimineto = a; cout << "Fecha de nacimiento" << endl; cin >> fechnacimineto;
-	 char* eestadocivil = a; cout << "Estado civil" << endl; cin >> eestadocivil;
-	int telefonofijo; cout << "Teléfono fijo," << endl; cin >> telefonofijo;
-	int telefonomovil; cout << "Teléfono móvil" << endl; cin >> telefonomovil;
-	char* correo = a; cout << "Correo electrónico," << endl; cin >> correo;
-	char* brigadaper = a; cout << "Brigada a la que pertenece," << endl; cin >> brigadaper;
-	char* fechainbrigada = a; cout << "Fecha de inicio en la brigada." << endl; cin >> fechainbrigada;
+	cout << "ingrese su sexo: ", getline(cin, sexoo);
+	cin.get();
+
+	cout << "DirecciOn de domicilio: ", getline(cin, domicilio);
+	cin.get();
+
+	cout << "Tipo de alergias: ", getline(cin, tipoalergia);
+
+	cout << "Fecha de nacimiento: ", getline(cin, fechnacimineto);
+
+	cout << "Estado civil: ", getline(cin, eestadocivil);
+
+
+	cout << "Numero de telefono fijo: ", cin >> telefonofijo;
+
+
+	cout << "Numero de telefono movil: ", cin >> telefonomovil;
+
+
+	cout << "Correo electronico: ", getline(cin, correo);
+	cin.get();
+
+
+	cout << "Nombre de la brigada a la que pertenece: ", getline(cin,brigadaper);
+	cin.get();
+
+
+	cout << "Fecha que inicio en la brigada: ", getline(cin, fechainbrigada);
+	cin.get();
 
 
 		*cab = new nodo;
@@ -93,7 +117,6 @@ void agrega(nodo** cab, nodo** no, nodo** sex, nodo** dir, nodo** tipal, nodo** 
 		*fechinbri= new nodo;
 		*fin = new nodo;
 		(*cab)->Dpi = Dp;
-		(*cab)->sgt =NULL;
 
 		(*no)->nombre = nom;
 		(*sex)->sexo = sexoo;
