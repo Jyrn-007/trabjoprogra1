@@ -15,7 +15,8 @@ using namespace std;
 
 void gotoxy(int x, int y)
 {
-	COORD coord;
+	COORD 
+	coord;
 	coord.X = x;
 	coord.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
@@ -41,6 +42,18 @@ struct nodo {
 };
 void agrega(nodo** cab, nodo** no , nodo** sex,  nodo** dir, nodo** tipal, nodo** fena, nodo** esciv, nodo** telf, nodo** telmov, nodo** cor, nodo** brig, nodo** fechinbri, nodo** fin);
 
+void muestra(nodo* cab, nodo *no, nodo* sex, nodo* dir, nodo* tipal, nodo* fena, nodo* esciv, nodo* telf, nodo* telmov, nodo* cor, nodo* brig, nodo* fechinbri) {
+	int i; i = 5;
+	system("cls");
+	gotoxy(10, 18); cout << "elementos en la lista" << endl; nodo* temp; temp = cab; nodo* tno; tno = no; while (tno !=NULL) {
+		gotoxy(12, i);	cout << temp << "    DPI--->", temp->Dpi;
+		gotoxy(14, i);	cout << tno << "    Nombre--->", tno->nombre;
+
+		i++;
+		tno = tno->sgt;
+	}
+	system("pause");
+}
 
 int main()
 {
@@ -56,7 +69,7 @@ int main()
 		switch (opcion) {
 		case 0: exit(0); break;
 		case 1: agrega(&c, &d, &e, &g, &h, &i, &j, &k, &l, &m, &n, &o, &f); break;
-	
+		case 2: muestra(c, d, e, g, h, i, j, k, l, m, n, o); break;
 
 		}
 	} while (opcion != 0);
@@ -69,36 +82,24 @@ void agrega(nodo** cab, nodo** no, nodo** sex, nodo** dir, nodo** tipal, nodo** 
 	string nom,sexoo,domicilio, tipoalergia,fechnacimineto, eestadocivil, correo, brigadaper, fechainbrigada;
 
 	cout << "ingrese su numero de DPI: ", cin >> Dp;
+	cout << "Numero de telefono fijo: ", cin >> telefonofijo;
+	cout << "Numero de telefono movil: ", cin >> telefonomovil;
 	cout << "ingrese su nombre completo: ", getline(cin, nom);
 	cin.get();
-
 	cout << "ingrese su sexo: ", getline(cin, sexoo);
 	cin.get();
-
 	cout << "DirecciOn de domicilio: ", getline(cin, domicilio);
 	cin.get();
-
 	cout << "Tipo de alergias: ", getline(cin, tipoalergia);
-
+	cin.get();
 	cout << "Fecha de nacimiento: ", getline(cin, fechnacimineto);
-
+	cin.get();
 	cout << "Estado civil: ", getline(cin, eestadocivil);
-
-
-	cout << "Numero de telefono fijo: ", cin >> telefonofijo;
-
-
-	cout << "Numero de telefono movil: ", cin >> telefonomovil;
-
-
+	cin.get();
 	cout << "Correo electronico: ", getline(cin, correo);
 	cin.get();
-
-
 	cout << "Nombre de la brigada a la que pertenece: ", getline(cin,brigadaper);
 	cin.get();
-
-
 	cout << "Fecha que inicio en la brigada: ", getline(cin, fechainbrigada);
 	cin.get();
 
